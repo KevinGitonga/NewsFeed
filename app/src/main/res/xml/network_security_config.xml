@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/7/20 1:12 PM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 4/14/20 6:09 PM
+  ~  */
+  -->
+
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">newsapi.org</domain>
+    </domain-config>
+</network-security-config>

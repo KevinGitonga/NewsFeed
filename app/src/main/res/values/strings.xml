@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">News Feed</string>
+    <string name="app_title">News Feed</string>
+    <string name="app_database_name">localities_app.db</string>
+</resources>

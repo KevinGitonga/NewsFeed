@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#212121</color>
+    <color name="colorPrimaryDark">#3B3B44</color>
+    <color name="colorAccent">@color/header</color>
+
+    <color name="app_background">#FFFFFF</color>
+    <color name="header">#212121</color>
+    <color name="text_default">#808080</color>
+    <color name="progress">#f3f3f3</color>
+    <color name="secondary_background">#EAEAEB</color>
+
+</resources>
