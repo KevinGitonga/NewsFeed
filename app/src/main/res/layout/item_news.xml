@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/10/20 11:54 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/10/20 11:54 AM
+  ~  */
+  -->
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="article"
+            type="ke.co.ipandasoft.newsfeed.data.remote.responses.Article"/>
+    </data>
+
+<androidx.cardview.widget.CardView
+    app:cardElevation="7dp"
+    app:cardCornerRadius="3dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="2dp"
+        android:paddingEnd="@dimen/news_item_padding"
+        android:background="@drawable/press_effect_white_bg">
+
+        <ImageView
+            coverImage="@{article.urlToImage}"
+            android:id="@+id/img_cover"
+            android:layout_width="100dp"
+            android:layout_height="84dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/rcom_default"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+          />
+
+        <TextView
+            android:text="@{article.title}"
+            android:id="@+id/tv_title"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="15dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_cover"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="China reports first coronavirus case in Wuhan since April 3 among 14 new infections - Reuters" />
+
+
+        <TextView
+            android:text="@{article.publishedAt}"
+            android:id="@+id/tv_publisher_time"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textThird"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintStart_toEndOf="@id/img_cover"
+            tools:text="2020-05-10T08:19:09Z" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</layout>
+
+

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/11/20 10:31 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/11/20 10:31 AM
+  ~  */
+  -->
 
-    <color name="colorPrimary">#ffffff</color>
+<resources>
+    <color name="colorPrimary">@color/header</color>
     <color name="colorPrimaryDark">#3B3B44</color>
     <color name="colorAccent">@color/header</color>
 
-    <color name="primaryTextColor">#ffffff</color>
+    <color name="primaryTextColor">@color/header</color>
     <color name="app_background">#FFFFFF</color>
     <color name="header">#212121</color>
     <color name="text_default">#808080</color>
@@ -13,7 +20,7 @@
     <color name="secondary_background">#EAEAEB</color>
     <color name="textThird">#C3C4D1</color>
     <color name="colorGrey">#757575</color>
-    <color name="navigationViewBackground">#ffffff</color>
-    <color name="imageBackgroundTint">#C3C3C3</color>
+    <color name="navigationViewBackground">#212121</color>
+    <color name="imageBackgroundTint">#212121</color>
 
 </resources>

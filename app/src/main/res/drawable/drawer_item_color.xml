@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/10/20 12:23 PM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/10/20 12:23 PM
+  ~  */
+  -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/colorAccent" android:state_checked="true" />
+    <item android:color="@color/colorGrey" android:state_checked="false" />
+</selector>

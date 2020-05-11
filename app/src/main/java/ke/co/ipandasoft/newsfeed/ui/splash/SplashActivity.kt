@@ -17,7 +17,9 @@ import ke.co.ipandasoft.newsfeed.BuildConfig
 import ke.co.ipandasoft.newsfeed.R
 import ke.co.ipandasoft.newsfeed.models.NewsLocality
 import ke.co.ipandasoft.newsfeed.ui.base.BaseActivity
+import ke.co.ipandasoft.newsfeed.ui.main.MainActivity
 import ke.co.ipandasoft.newsfeed.utils.AppUtils
+import ke.co.ipandasoft.newsfeed.utils.NavigationUtils
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.startKoin
 import timber.log.Timber
@@ -71,7 +73,7 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun navigateToMain(){
-        Toast.makeText(this,"Navigate to main",Toast.LENGTH_SHORT).show()
+        NavigationUtils.navigate(this,MainActivity::class.java)
     }
 
     //bind to business logic load data

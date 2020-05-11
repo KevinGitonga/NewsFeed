@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/10/20 12:21 PM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/10/20 12:21 PM
+  ~  */
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/nav_first_group"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/homeNews"
+            android:icon="@drawable/ic_nav_home"
+            android:title="@string/title_home"
+            app:contentDescription="@string/title_home" />
+
+        <item
+            android:id="@+id/searchNews"
+            android:icon="@drawable/ic_search"
+            android:title="@string/search_news"
+            app:contentDescription="@string/search_news" />
+
+        <item
+            android:id="@+id/favourite"
+            android:icon="@drawable/ic_nav_popular"
+            android:title="@string/favourite"
+            app:contentDescription="@string/favourite" />
+
+    </group>
+
+    <group
+        android:id="@+id/nav_second_group"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/app_info"
+            android:icon="@drawable/ic_nav_info"
+            android:title="@string/title_info"
+            app:contentDescription="@string/title_info" />
+
+        <item
+            android:id="@+id/app_settings"
+            android:icon="@drawable/ic_nav_settings"
+            android:title="@string/settings_title"
+            app:contentDescription="@string/settings_title" />
+    </group>
+</menu>

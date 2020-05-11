@@ -8,6 +8,7 @@
 
 package ke.co.ipandasoft.newsfeed.di
 
+import ke.co.ipandasoft.newsfeed.ui.home.NewsFragmentViewModel
 import ke.co.ipandasoft.newsfeed.ui.splash.SplashViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -15,4 +16,5 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
   viewModel { SplashViewModel(get(),get()) }
+  viewModel { NewsFragmentViewModel(get(),get()) }
 }

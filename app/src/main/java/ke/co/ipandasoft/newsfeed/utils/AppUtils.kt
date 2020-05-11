@@ -11,8 +11,10 @@ package ke.co.ipandasoft.newsfeed.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
 import android.telephony.TelephonyManager
 import android.text.TextUtils
+import org.ocpsoft.prettytime.PrettyTime
 import timber.log.Timber
 import java.text.ParseException
 import java.text.SimpleDateFormat
@@ -30,59 +32,26 @@ class AppUtils private constructor() {
 
     companion object {
 
-        private val DEBUG = true
-        private val TAG = "AppUtils"
-        private const val TIME_FORMAT_WITH_TIMEZONE = "yyyy-MM-dd'T'HH:mm:ssZ"
+        //"publishedAt":"2020-05-11T08:24:14Z
+        private const val TIME_FORMAT_WITH_TIMEZONE = "yyyy-MM-dd'T'HH:mm:ss"
 
 
-        fun clearCache(context: Context): Boolean {
-            var result = context.cacheDir.deleteRecursively()
-            Timber.e("DELETE CACHE  $result")
-            return result
-        }
-
-
-        @SuppressLint("deprecated")
-        fun getVerCode(context: Context): Int {
-            var verCode = -1
-            try {
-                val packageName = context.packageName
-                verCode = context.packageManager
-                        .getPackageInfo(packageName, 0).versionCode
-            } catch (e: PackageManager.NameNotFoundException) {
-                e.printStackTrace()
+        fun getRelativeDateTimeString(date: Date):CharSequence {
+            var locale = Locale.getDefault()
+            if (locale.language == "kk" && Build.VERSION.SDK_INT >= 21)
+            {
+                locale = Locale.forLanguageTag("ru")
             }
-
-            return verCode
+            val prettyTime = PrettyTime(locale)
+            return prettyTime.format(date)
         }
+
+
 
         fun getLocation(context: Context):String{
             val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
             return tm.networkCountryIso
         }
-
-
-
-        val maxMemory: Long
-            get() = Runtime.getRuntime().maxMemory() / 1024
-
-
-        fun getVerName(context: Context): String {
-            var verName = ""
-            try {
-                val packageName = context.packageName
-                verName = context.packageManager
-                        .getPackageInfo(packageName, 0).versionName
-            } catch (e: PackageManager.NameNotFoundException) {
-                e.printStackTrace()
-            }
-
-            return verName
-        }
-
-
-
-
 
 
         fun getDateIso(str:String):Date {
@@ -96,6 +65,7 @@ class AppUtils private constructor() {
             }
             catch (e: ParseException) {
                 e.printStackTrace()
+                Timber.e("exception date"+e.localizedMessage)
                 return Date()
             }
         }

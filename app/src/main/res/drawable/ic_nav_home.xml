@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/11/20 8:56 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 10/9/19 8:48 AM
+  ~  */
+  -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M12,3L4,9v12h16L20,9l-8,-6zM18,19h-3v-6L9,13v6L6,19v-9l6,-4.5 6,4.5v9z"
+        android:fillColor="#5F6368"
+        android:fillType="nonZero" />
+</vector>
