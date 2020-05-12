@@ -17,11 +17,13 @@
 
         <activity
             android:name=".ui.main.MainActivity"
-            android:theme="@style/SplashTheme"
+            android:label="@string/title_home"
+            android:theme="@style/AppTheme"
             ></activity>
 
         <activity
             android:name=".ui.splash.SplashActivity"
+            android:noHistory="true"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/12/20 12:04 PM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/12/20 12:04 PM
+  ~  */
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.classic.common.MultipleStatusView
+            android:id="@+id/multipleStatusView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:emptyView="@layout/layout_no_connectivity"
+            app:errorView="@layout/layout_no_connectivity"
+            app:loadingView="@layout/layout_loading_view"
+            app:noNetworkView="@layout/layout_no_connectivity">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                tools:listitem="@layout/item_news"
+                android:paddingBottom="@dimen/padding_tab_layout_bottom" />
+
+        </com.classic.common.MultipleStatusView>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

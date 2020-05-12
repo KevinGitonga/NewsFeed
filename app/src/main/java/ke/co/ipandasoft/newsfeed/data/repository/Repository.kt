@@ -17,5 +17,7 @@ interface Repository{
 
     suspend fun getNewsHeadLines(countryCode:String):ResultWrapper<NewsResponse>
 
+    suspend fun getCategorizedNewsHeadLines(countryCode:String,category:String):ResultWrapper<NewsResponse>
+
     suspend fun  getApiNewsCountries():ResultWrapper<List<NewsLocality>>
 }

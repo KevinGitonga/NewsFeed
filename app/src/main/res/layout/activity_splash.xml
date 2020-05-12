@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/app_title"
-        android:textColor="@color/header"
         android:textSize="@dimen/splash_text_top_dimens"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -27,6 +26,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="30dp"
+        android:tint="@color/imageBackgroundTint"
         app:layout_constraintTop_toBottomOf="@id/splashTextTop"
         ></ImageView>
 

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/12/20 11:11 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/12/20 11:11 AM
+  ~  */
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="5dp">
+
+    <data>
+        <variable
+            name="article"
+            type="ke.co.ipandasoft.newsfeed.models.Article"/>
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:elevation="5dp"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/windowBackground">
+
+        <TextView
+            android:text="@{article.title}"
+            android:id="@+id/newsHeadingTv"
+            android:fontFamily="@font/montserrat_bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:padding="5dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/newsIv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Trump donald Trump"/>
+
+        <ImageView
+            coverImage="@{article.urlToImage}"
+            android:id="@+id/newsIv"
+            android:layout_width="120dp"
+            android:src="@drawable/rcom_default"
+            android:layout_height="120dp"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newsHeadingTv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:text="@{article.description}"
+            android:id="@+id/newsDescTv"
+            android:fontFamily="@font/montserrat_regular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:padding="5dp"
+            app:layout_constraintEnd_toStartOf="@+id/newsIv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newsHeadingTv"
+            tools:text="news description here..."/>
+
+        <ImageView
+            android:id="@+id/bookmarkIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:padding="5dp"
+            android:src="@drawable/ic_bookmark_border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newsIv" />
+
+        <TextView
+            android:text="@{article.source.name}"
+            android:id="@+id/newsSourceTv"
+            android:fontFamily="@font/montserrat_medium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/newsIv"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="cnn"/>
+
+        <TextView
+            android:text="@{article.publishedAt}"
+            android:id="@+id/tv_publisher_time"
+           android:fontFamily="@font/montserrat_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/newsSourceTv"
+            tools:text="2020-05-10T08:19:09Z" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</layout>

@@ -6,11 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:toolbarStyle">@style/ToolBarStyle</item>
+
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="toolbarStyle">@style/ToolBarStyle</item>
+
     </style>
 
     <style name="ToolBarStyle" parent="@style/Widget.MaterialComponents.Toolbar">
-        <item name="titleTextColor">@color/primaryTextColor</item>
+        <item name="background">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/toolbarBackground</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -18,7 +22,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:toolbarStyle">@style/ToolBarStyle</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
     </style>
 
 </resources>

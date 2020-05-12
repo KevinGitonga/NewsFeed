@@ -9,8 +9,11 @@
 package ke.co.ipandasoft.newsfeed.data.remote.responses
 
 
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
+import ke.co.ipandasoft.newsfeed.models.SourcesConverter
 
+@TypeConverters(SourcesConverter::class)
 data class Source(
     @SerializedName("id")
     var id: Any?,

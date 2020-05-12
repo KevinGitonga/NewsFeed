@@ -12,6 +12,7 @@ import android.content.Context
 import androidx.room.Room
 import ke.co.ipandasoft.newsfeed.R
 import ke.co.ipandasoft.newsfeed.data.local.AppDatabase
+import ke.co.ipandasoft.newsfeed.data.local.ArticleDao
 import ke.co.ipandasoft.newsfeed.data.local.NewsLocalityDao
 import org.koin.dsl.module
 
@@ -20,10 +21,16 @@ object PersistenceModule {
       single { provideAppDatabase(get()) }
 
       single { provideLocalitiesDao(get()) }
+
+      single { provideArticlesDao(get()) }
     }
 
     private fun provideLocalitiesDao(appDatabase: AppDatabase):NewsLocalityDao {
          return appDatabase.newsLocalityDao()
+    }
+
+    private fun provideArticlesDao(appDatabase: AppDatabase):ArticleDao {
+        return appDatabase.articleDao()
     }
 
     private fun provideAppDatabase(context: Context):AppDatabase{

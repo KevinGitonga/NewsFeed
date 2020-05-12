@@ -10,6 +10,7 @@ package ke.co.ipandasoft.newsfeed.data.remote.responses
 
 
 import com.google.gson.annotations.SerializedName
+import ke.co.ipandasoft.newsfeed.models.Article
 
 data class NewsResponse(
     @SerializedName("articles")

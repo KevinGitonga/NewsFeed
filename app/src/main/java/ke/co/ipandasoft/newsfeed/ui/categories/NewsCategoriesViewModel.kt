@@ -1,12 +1,12 @@
 /*
  * *
- *  * Created by Kevin Gitonga on 5/11/20 9:35 AM
+ *  * Created by Kevin Gitonga on 5/12/20 12:03 PM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 5/11/20 9:35 AM
+ *  * Last modified 5/12/20 12:03 PM
  *
  */
 
-package ke.co.ipandasoft.newsfeed.ui.home
+package ke.co.ipandasoft.newsfeed.ui.categories
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -22,30 +22,29 @@ import ke.co.ipandasoft.newsfeed.models.NewsLocality
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class NewsFragmentViewModel(private val repository: NewsRepository,
-                            private val newsLocalityDao: NewsLocalityDao,
-                            private val articleDao: ArticleDao
-) :ViewModel(){
+class NewsCategoriesViewModel(private val repository: NewsRepository,
+                              private val newsLocalityDao: NewsLocalityDao,
+                              private val articleDao: ArticleDao) : ViewModel() {
 
-    private val recentNewsMutableData:MutableLiveData<List<Article>> = MutableLiveData()
-    val recentNewsLiveData:LiveData<List<Article>>
-            get() = recentNewsMutableData
+    private val recentNewsMutableData: MutableLiveData<List<Article>> = MutableLiveData()
+    val recentNewsLiveData: LiveData<List<Article>>
+        get() = recentNewsMutableData
 
-    private val newsLocalityLiveLocal=MutableLiveData<NewsLocality>()
-    val newsLocalityLocal:LiveData<NewsLocality>
+    private val newsLocalityLiveLocal= MutableLiveData<NewsLocality>()
+    val newsLocalityLocal: LiveData<NewsLocality>
         get() = newsLocalityLiveLocal
 
 
-    fun getLocalizedNews(countryCode: String){
+    fun getLocalizedNews(countryCode: String,category:String){
         viewModelScope.launch {
-          when(val resultResponse =repository.getNewsHeadLines(countryCode)) {
+            when(val resultResponse =repository.getCategorizedNewsHeadLines(countryCode,category)) {
                 is ResultWrapper.Success ->{
                     val latestNews=resultResponse.data
                     recentNewsMutableData.postValue(latestNews.articles)
                 }
-              is ResultWrapper.Error->{
-                  Timber.e("Error in response ${resultResponse.exception.localizedMessage}")
-          }
+                is ResultWrapper.Error->{
+                    Timber.e("Error in response ${resultResponse.exception.localizedMessage}")
+                }
             }
         }
     }
@@ -62,7 +61,5 @@ class NewsFragmentViewModel(private val repository: NewsRepository,
         viewModelScope.launch {
             articleDao.insertArticle(article)
         }
-
-    }
-
+}
 }

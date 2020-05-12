@@ -1,14 +1,15 @@
 /*
  * *
- *  * Created by Kevin Gitonga on 5/10/20 12:32 PM
+ *  * Created by Kevin Gitonga on 5/12/20 3:04 PM
  *  * Copyright (c) 2020 . All rights reserved.
- *  * Last modified 5/10/20 12:32 PM
+ *  * Last modified 5/12/20 3:04 PM
  *
  */
 
-package ke.co.ipandasoft.newsfeed.ui.home
+package ke.co.ipandasoft.newsfeed.ui.categories
 
 import android.net.Uri
+import android.os.Bundle
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
@@ -18,15 +19,28 @@ import com.google.gson.Gson
 import ke.co.ipandasoft.newsfeed.R
 import ke.co.ipandasoft.newsfeed.models.Article
 import ke.co.ipandasoft.newsfeed.ui.base.BaseFragment
+import ke.co.ipandasoft.newsfeed.ui.home.AdapterEventListener
+import ke.co.ipandasoft.newsfeed.ui.home.NewsAdapter
 import ke.co.ipandasoft.newsfeed.utils.AppUtils
 import kotlinx.android.synthetic.main.news_fragment.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
-class NewsFragment : BaseFragment(), AdapterEventListener {
+class NewsCategoryListFragment : BaseFragment(), AdapterEventListener {
 
-    val newsFragmentViewModel by viewModel<NewsFragmentViewModel>()
+    val newsCategoriesViewModel by viewModel<NewsCategoriesViewModel>()
     private lateinit var newsAdapter: NewsAdapter
+    private var newsCategory:String?=null
+
+    companion object{
+        fun getInstance(newsCategory: String):NewsCategoryListFragment{
+            val fragment = NewsCategoryListFragment()
+            val bundle = Bundle()
+            fragment.arguments = bundle
+            fragment.newsCategory=newsCategory
+            return fragment
+        }
+    }
 
     override fun getLayoutId(): Int {
         return R .layout.news_fragment
@@ -38,17 +52,17 @@ class NewsFragment : BaseFragment(), AdapterEventListener {
 
 
     override fun lazyLoad() {
-        newsFragmentViewModel.getAppLocalityLocal()
-        newsFragmentViewModel.newsLocalityLocal.observe(viewLifecycleOwner, Observer {
+        newsCategoriesViewModel.getAppLocalityLocal()
+        newsCategoriesViewModel.newsLocalityLocal.observe(viewLifecycleOwner, Observer {
             if (it!=null){
-                newsFragmentViewModel.getLocalizedNews(it.countryCode)
+                newsCategoriesViewModel.getLocalizedNews(it.countryCode, this!!.newsCategory!!)
                 observeLatestNews()
             }
         })
     }
 
     private fun observeLatestNews() {
-        newsFragmentViewModel.recentNewsLiveData.observe(viewLifecycleOwner, Observer {
+        newsCategoriesViewModel.recentNewsLiveData.observe(viewLifecycleOwner, Observer {
             if (it.isNotEmpty()){
                 multipleStatusView.showContent()
                 Timber.e("LATEST NEWS ${Gson().toJson(it)}")
@@ -85,7 +99,7 @@ class NewsFragment : BaseFragment(), AdapterEventListener {
 
     override fun onNewsLikeListener(position:Int,article: Article) {
         article.isBookmark=true
-        newsFragmentViewModel.saveBookmark(article)
+        newsCategoriesViewModel.saveBookmark(article)
         Toast.makeText(context,"Article saved for Later",Toast.LENGTH_SHORT).show()
     }
 }

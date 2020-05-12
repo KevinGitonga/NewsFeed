@@ -20,8 +20,8 @@ interface ApiService {
     @GET("/v2/top-headlines")
     suspend fun loadHeadlines(@Query("country") countryCode:String):Response<NewsResponse>
 
-    @GET("/v2/everything")
-    suspend fun loadAllNews():Response<NewsResponse>
+    @GET("/v2/top-headlines")
+    suspend fun loadCategoryHeadlines(@Query("country") countryCode:String,@Query("category") category:String):Response<NewsResponse>
 
     @GET("/v2/sources")
     suspend fun getSourceBased():Response<NewsResponse>

@@ -3,12 +3,14 @@
     <string name="app_title">News Feed</string>
     <string name="app_database_name">localities_app.db</string>
     <string name="navigation_view_header_title">Your #1 News Partner</string>
-    <string name="title_home">News Feed</string>
+    <string name="title_home">Latest Feed</string>
     <string name="search_news">Search</string>
     <string name="title_info">Info</string>
     <string name="settings_title">Settings</string>
-    <string name="favourite">Favourites</string>
+    <string name="favourite">Bookmarks</string>
     <string name="no_liked_items">You Dont have Favs Yet..</string>
     <string name="poor_network_view_hint">Poor or No Network</string>
     <string name="loading_text">Loading News</string>
+    <string name="news_categories">Categories</string>
+    <string name="home_dashboard">Local News</string>
 </resources>

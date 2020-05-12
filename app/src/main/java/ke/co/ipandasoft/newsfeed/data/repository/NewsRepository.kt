@@ -43,6 +43,29 @@ class NewsRepository(private val apiService: ApiService):Repository {
         }
     }
 
+    override suspend fun getCategorizedNewsHeadLines(countryCode: String,category:String):ResultWrapper<NewsResponse>{
+        return try {
+            val dataResponse=apiService.loadCategoryHeadlines(countryCode,category)
+            var newsResponse:NewsResponse?=null
+            when {
+                dataResponse.isSuccessful -> {
+                    Timber.e("SUCCESS RESP ${Gson().toJson(dataResponse.body())}")
+                    newsResponse= dataResponse.body()!!
+                }
+                else -> {
+                    Timber.e("ERROR RESP ${Gson().toJson(dataResponse.errorBody())}")
+                }
+            }
+            return ResultWrapper.Success(newsResponse!!)
+
+        }catch (exception:Exception){
+
+            val errorResponse=ResultWrapper.Error(exception)
+            Timber.e("ERROR RESP ${Gson().toJson(errorResponse.exception.localizedMessage)}")
+            return ResultWrapper.Error(errorResponse.exception)
+        }
+    }
+
     override suspend fun getApiNewsCountries(): ResultWrapper<List<NewsLocality>>{
         return try {
             val countriesResponse=apiService.getNewsApiCountries(BuildConfig.API_NEWS_COUNTRIES+Constants.API_NEWS_CATEGORY_ENDPOINT)

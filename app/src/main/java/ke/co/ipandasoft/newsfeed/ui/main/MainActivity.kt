@@ -10,6 +10,7 @@ package ke.co.ipandasoft.newsfeed.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.drawerlayout.widget.DrawerLayout
@@ -24,9 +25,8 @@ import ke.co.ipandasoft.newsfeed.R
 import ke.co.ipandasoft.newsfeed.ui.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private lateinit var drawerLayout: DrawerLayout
-    private lateinit var appBarConfiguration: AppBarConfiguration
+class MainActivity : BaseActivity(){
+    private var mExitTime: Long = 0
 
     override fun layoutId(): Int {
       return R.layout.activity_main
@@ -37,47 +37,44 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     override fun initView() {
-        setupNavigationDrawer()
-        setSupportActionBar(findViewById(R.id.toolbar))
+
         bindViews()
 
     }
 
     private fun bindViews() {
-        val navController: NavController = findNavController(R.id.nav_host_fragment)
-        appBarConfiguration =
-            AppBarConfiguration.Builder(R.id.newsHomeFragment)
-                .setDrawerLayout(drawerLayout)
-                .build()
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        findViewById<NavigationView>(R.id.nav_view)
-            .setupWithNavController(navController)
+        val appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.newsHomeFragment, R.id.newsCategoriesFragment,
+            R.id.bookMarksFragment, R.id.settingsFragment))
+
+        val navController: NavController = findNavController(R.id.navHostFragment)
+        setupActionBarWithNavController(navController,appBarConfiguration)
+        bottomNavBar.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return findNavController(R.id.nav_host_fragment).navigateUp(appBarConfiguration)
+        return findNavController(R.id.navHostFragment).navigateUp()
                 || super.onSupportNavigateUp()
     }
 
-    private fun setupNavigationDrawer() {
-        drawerLayout = (findViewById<DrawerLayout>(R.id.drawer_layout))
-            .apply {
-                setStatusBarBackground(R.color.colorPrimaryDark)
-            }
-        nav_view.setNavigationItemSelectedListener(this)
-    }
+
 
     override fun start() {
 
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        if (item.itemId==R.id.homeNews){
-            Toast.makeText(this,"NEWS FEED",Toast.LENGTH_SHORT)
-        }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (System.currentTimeMillis().minus(mExitTime) <= 2000) {
+                finish()
 
-        return true
+            }
+        else {
+                mExitTime = System.currentTimeMillis()
+                Toast.makeText(this,"Click Again To Exit",Toast.LENGTH_SHORT)
+            }
     }
+
 
 
 }

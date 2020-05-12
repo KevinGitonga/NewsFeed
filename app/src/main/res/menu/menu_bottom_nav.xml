@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/10/20 12:21 PM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/10/20 12:21 PM
+  ~  */
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <item
+            android:id="@+id/newsHomeFragment"
+            android:icon="@drawable/ic_nav_home"
+            android:title="@string/title_home"
+            />
+
+        <item
+            android:id="@+id/newsCategoriesFragment"
+            android:icon="@drawable/ic_categories"
+            android:title="@string/news_categories"
+            />
+
+        <item
+            android:id="@+id/bookMarksFragment"
+            android:icon="@drawable/ic_bookmarked_item"
+            android:title="@string/favourite"
+          />
+
+
+      <item
+            android:id="@+id/settingsFragment"
+            android:icon="@drawable/ic_nav_settings"
+            android:title="@string/settings_title"
+             />
+
+</menu>

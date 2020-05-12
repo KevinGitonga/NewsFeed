@@ -16,8 +16,28 @@
     <fragment
         android:id="@+id/newsHomeFragment"
         android:name="ke.co.ipandasoft.newsfeed.ui.home.NewsFragment"
-        android:label="Home"
+        android:label="@string/home_dashboard"
         tools:layout="@layout/news_fragment" >
     </fragment>
+    <fragment
+        android:id="@+id/newsCategoriesFragment"
+        android:name="ke.co.ipandasoft.newsfeed.ui.categories.NewsCategoriesFragment"
+        android:label="Categories"
+        tools:layout="@layout/news_categories_fragment" />
+    <fragment
+        android:id="@+id/bookMarksFragment"
+        android:name="ke.co.ipandasoft.newsfeed.ui.BookMarksFragment"
+        android:label="Bookmarks"
+        tools:layout="@layout/book_marks_fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="ke.co.ipandasoft.newsfeed.ui.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/settings_fragment" />
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="ke.co.ipandasoft.newsfeed.ui.newsdetails.NewsDetailFragment"
+        android:label="news_detail_fragment"
+        tools:layout="@layout/news_detail_fragment" />
 
 </navigation>
