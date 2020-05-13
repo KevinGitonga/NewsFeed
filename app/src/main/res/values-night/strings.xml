@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/13/20 11:25 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/13/20 11:25 AM
+  ~  */
+  -->
+
+<resources>
+    <string name="notifications">Notifications</string>
+    <string name="choose_theme">Choose theme</string>
+    <string name="open_source_references">Open source licences</string>
+    <string-array name="theme_types">Light</string-array>
+</resources>

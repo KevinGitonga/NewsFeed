@@ -23,13 +23,14 @@
             android:id="@+id/multipleStatusView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:emptyView="@layout/layout_no_connectivity"
+            app:emptyView="@layout/layout_no_bookmarks"
             app:errorView="@layout/layout_no_connectivity"
             app:loadingView="@layout/layout_loading_view"
             app:noNetworkView="@layout/layout_no_connectivity">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/mRecyclerView"
+                android:background="@color/recycler_background"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"

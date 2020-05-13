@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/13/20 11:48 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/13/20 11:48 AM
+  ~  */
+  -->
+
+<resources>
+    <string-array name="app_theme_names_array">
+        <item>@string/light_app_theme</item>
+        <item>@string/dark_app_theme</item>
+        <item>@string/system_default_theme</item>
+    </string-array>
+
+    <string-array name="app_theme_values_array">
+        <item>@string/light_theme_value</item>
+        <item>@string/dark_theme_value</item>
+        <item>@string/system_default_value</item>
+    </string-array>
+</resources>

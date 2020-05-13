@@ -32,6 +32,7 @@
                     android:id="@+id/mRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:background="@color/recycler_background"
                     android:clipToPadding="false"
                     tools:listitem="@layout/item_news"
                     android:paddingBottom="@dimen/padding_tab_layout_bottom" />

@@ -8,7 +8,9 @@ def versionMinor = 2
 def versionPatch = 3
 
 def packageName = "ke.co.ipandasoft.newsfeed"
-def appName = "NewsFeed"
+def apiNewsKeyFile = rootProject.file("apikey.properties")
+def apiNewskey = new Properties()
+apiNewskey.load(new FileInputStream(apiNewsKeyFile))
 
 android {
     compileSdkVersion 29
@@ -41,7 +43,7 @@ android {
             versionNameSuffix ".debug"
             buildConfigField "String", "API_BASE_URL", '"http://newsapi.org/"'
             buildConfigField "String", "API_NEWS_COUNTRIES", '"https://gist.githubusercontent.com/"'
-            buildConfigField "String", "NEWS_API_KEY", '"8b22d8c07562496d883a67cc1b5137da"'
+            buildConfigField "String", "NEWS_API_KEY", apiNewskey['NEWS_API_KEY']
             resValue "string", "app_version", "${defaultConfig.versionName}${versionNameSuffix}"
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
@@ -51,7 +53,7 @@ android {
         release {
             minifyEnabled false
             buildConfigField "String", "API_BASE_URL", '"http://newsapi.org/"'
-            buildConfigField "String", "NEWS_API_KEY", '"8b22d8c07562496d883a67cc1b5137da"'
+            buildConfigField "String", "NEWS_API_KEY", apiNewskey['NEWS_API_KEY']
             buildConfigField "String", "API_NEWS_COUNTRIES", '"https://gist.githubusercontent.com/"'
             resValue "string", "app_version", "${defaultConfig.versionName}"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -136,9 +138,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata:2.2.0'
     kapt "androidx.lifecycle:lifecycle-compiler:2.2.0"
 
     //room database
@@ -168,7 +167,7 @@ dependencies {
     //browser
     implementation 'androidx.browser:browser:1.2.0'
 
-    //prefences settings backfix
-    implementation 'com.takisoft.fix:preference-v7:25.3.0.0'
+    //prefences settings
+    implementation 'androidx.preference:preference:1.1.1'
 
 }

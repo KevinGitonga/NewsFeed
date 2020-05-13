@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:textSize="15sp"
-        android:textColor="@color/colorGrey"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/no_liked_items" />
 

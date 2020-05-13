@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by Kevin Gitonga on 5/13/20 11:23 AM
+  ~  * Copyright (c) 2020 . All rights reserved.
+  ~  * Last modified 5/13/20 11:23 AM
+  ~  */
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/notifications">
+
+        <CheckBoxPreference
+            android:key="checkbox_preference"
+            android:title="@string/receive_preference"
+            android:defaultValue="true"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="theme_select"
+        android:title="Select theme">
+
+        <ListPreference
+            android:title="Select theme"
+            android:defaultValue="@string/system_default_value"
+            android:dialogTitle="@string/choose_theme"
+            android:entries="@array/app_theme_names_array"
+            android:entryValues="@array/app_theme_values_array"
+            android:key="@string/app_theme_key"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/about_app">
+
+        <Preference
+            android:title="@string/open_source_references">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/KevinGitonga/NewsFeed" />
+        </Preference>
+
+        <Preference
+            android:title="@string/about_app_site">
+            <intent android:action="android.intent.action.VIEW"
+                android:data="https://github.com/KevinGitonga/NewsFeed" />
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

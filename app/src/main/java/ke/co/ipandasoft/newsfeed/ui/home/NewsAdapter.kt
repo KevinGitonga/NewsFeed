@@ -35,6 +35,7 @@ class NewsAdapter(private val newsArticles:List<Article>, private val  adapterEv
         if (article.isBookmark!!){
             holder.itemNewsLayoutBinding.article=article
             holder.itemNewsLayoutBinding.bookmarkIv.setImageResource(R.drawable.ic_bookmarked_item)
+            holder.itemNewsLayoutBinding.cardView.setOnClickListener{adapterEventListener.onNewsClickListener(article)}
             holder.itemNewsLayoutBinding.bookmarkIv.setOnClickListener{
                 holder.itemNewsLayoutBinding.bookmarkIv.setImageResource(R.drawable.ic_bookmark_border)
                 adapterEventListener.onNewsLikeListener(position,article)}

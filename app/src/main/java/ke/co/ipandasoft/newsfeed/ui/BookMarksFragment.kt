@@ -35,7 +35,7 @@ import timber.log.Timber
 
 class BookMarksFragment : BaseFragment(), AdapterEventListener {
 
-     val bookMarksViewModel by viewModel<BookMarksViewModel>()
+     private val bookMarksViewModel by viewModel<BookMarksViewModel>()
      private lateinit var newsAdapter: NewsAdapter
     private var articleList : MutableList<Article>? = mutableListOf()
 
@@ -64,19 +64,19 @@ class BookMarksFragment : BaseFragment(), AdapterEventListener {
     override fun onNewsClickListener(article: Article) {
         Timber.e("ITEM CLICKED ${article.author}")
         val builder = CustomTabsIntent.Builder()
-        builder.setToolbarColor(ContextCompat.getColor(this!!.context!!, R.color.colorPrimary))
+        builder.setToolbarColor(ContextCompat.getColor(this!!.requireContext(), R.color.toolbarBackground))
         builder.setShowTitle(true)
-        builder.setStartAnimations(this!!.context!!, android.R.anim.fade_in, android.R.anim.fade_out)
-        builder.setExitAnimations(this!!.context!!, android.R.anim.fade_in, android.R.anim.fade_out)
+        builder.setStartAnimations(this!!.requireContext(), android.R.anim.fade_in, android.R.anim.fade_out)
+        builder.setExitAnimations(this!!.requireContext(), android.R.anim.fade_in, android.R.anim.fade_out)
 
         val customTabsIntent = builder.build()
         // check is chrom available
-        val packageName = AppUtils.getPackageNameToUse(this!!.context!!, article.url!!)
+        val packageName = AppUtils.getPackageNameToUse(this!!.requireContext(), article.url!!)
 
         when {
             packageName != null -> {
                 customTabsIntent.intent.setPackage(packageName)
-                customTabsIntent.launchUrl(this!!.context!!, Uri.parse(article.url))
+                customTabsIntent.launchUrl(this!!.requireContext(), Uri.parse(article.url))
             }
             else -> {
                 // if chrome not available open in web view

@@ -8,6 +8,7 @@
 
     <color name="textColor">@android:color/black</color>
     <color name="post_background">@android:color/white</color>
+    <color name="recycler_background">#F3F3F3</color>
 
     <color name="imageBackgroundTint">@color/colorPrimary</color>
 

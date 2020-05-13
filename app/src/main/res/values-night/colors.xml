@@ -17,6 +17,7 @@
         <color name="post_background">#0DFFFFFF</color>
 
         <color name="imageBackgroundTint">#1976d2</color>
-        <color name="toolbarBackground">#000000</color>
+        <color name="toolbarBackground">#2C2B2B</color>
+        <color name="recycler_background">#2C2B2B</color>
 
 </resources>
